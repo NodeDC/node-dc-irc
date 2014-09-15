@@ -11,6 +11,7 @@
   "dependencies": {
     "hapi": "6.8.1",
     "irc": "0.3.7",
+    "mongodb": "1.4.10",
     "newrelic": "1.11.1"
   },
   "engines": {
