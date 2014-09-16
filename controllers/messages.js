@@ -10,7 +10,8 @@ var messages = function (server) {
     config: {
       validate: {
         query: {
-          offset: Joi.number().integer()
+          offset: Joi.number().integer(),
+          q: Joi.string()
         }
       },
       pre: [
