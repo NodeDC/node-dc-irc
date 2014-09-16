@@ -1,18 +1,17 @@
 var messages = function (server) {
+  var db = server.settings.app.database;
+
   server.route({
     method: "GET",
     path: "/messages",
-    handler: messages.find.bind(this, server.settings.app.database)
-  });
-};
-
-messages.find = function (database, request, reply) {
-  database.getMessages(function (err, messages) {
-    if (err) {
-      return reply(Hapi.error.internal("Failed to retrieve messages.", err));
+    config: {
+      pre: [
+        { method: db.getMessages.bind(db), assign: "messages" }
+      ],
+      handler: function (request, reply) {
+        reply(request.pre.messages);
+      }
     }
-
-    reply(messages);
   });
 };
 
