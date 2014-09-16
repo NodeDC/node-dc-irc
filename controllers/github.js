@@ -48,7 +48,8 @@ github.parsers = {
     var problematicHooks = [];
 
     message.push("Wahoo! GitHub is now configured to notify here on " +
-      englishize(payload.hook.events) + ".");
+      englishize(payload.hook.events) + " for " +
+      payload.repository.full_name + ".");
 
     for (var i = 0; i < payload.hook.events.length; i++) {
       var hook = payload.hook.events[i];
