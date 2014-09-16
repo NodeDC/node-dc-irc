@@ -2,7 +2,6 @@ var Joi = require("joi");
 
 var messages = function (server) {
   var db = server.settings.app.database;
-  var url = server.settings.app.url;
 
   server.route({
     method: "GET",
