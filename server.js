@@ -12,7 +12,11 @@ var database = new MongoDB();
 var bot = new Bot(database);
 
 var server = new Hapi.Server("0.0.0.0", port, {
-  app: { bot: bot, database: database },
+  app: {
+    bot: bot,
+    database: database,
+    url: process.env.EXTERNAL_URL || "http://localhost:3000"
+  },
   cors: true,
   router: { isCaseSensitive: false, stripTrailingSlash: true }
 });
