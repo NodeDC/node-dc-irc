@@ -8,7 +8,7 @@ This app is hosted at [node-dc-irc.herokuapp.com](http://node-dc-irc.herokuapp.c
 
 - [GET /messages](http://node-dc-irc.herokuapp.com/messages). Returns the last 100 messages sent to the IRC channel. If the result set is incomplete (there are more than 100 messages), a Link header is sent with the URL to the next page.
 
-```http
+```
 Link: <http://node-dc-irc.herokuapp.com/messages?offset=1410826789911>; rel="next"
 ```
 

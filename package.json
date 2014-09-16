@@ -1,12 +1,12 @@
 {
   "name": "node-dc-irc",
   "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "An IRC bot (and REST API) for #node.dc.",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"You should really write some tests.\" && exit 0"
   },
-  "author": "",
+  "author": "Andrew Dunkman <adunkman@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "hapi": "6.8.1",
