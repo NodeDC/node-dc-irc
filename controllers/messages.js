@@ -1,3 +1,5 @@
+var Joi = require("joi");
+
 var messages = function (server) {
   var db = server.settings.app.database;
   var url = server.settings.app.url;
@@ -6,6 +8,11 @@ var messages = function (server) {
     method: "GET",
     path: "/messages",
     config: {
+      validate: {
+        query: {
+          offset: Joi.number().integer()
+        }
+      },
       pre: [
         { method: db.getMessages.bind(db), assign: "messages" }
       ],
