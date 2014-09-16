@@ -14,7 +14,7 @@ var messages = function (server) {
         var response = reply(messages.list);
 
         if (messages.offset) {
-          response.header("Link", "<" + url + "/messages?offset=" + messages.offset + ">; rel=\"next\"");
+          response.header("Link", "<http://" + request.info.host + "/messages?offset=" + messages.offset + ">; rel=\"next\"");
         }
       }
     }
