@@ -19,5 +19,6 @@ var server = new Hapi.Server("0.0.0.0", port, {
 
 require("./controllers/newrelic")(server);
 require("./controllers/messages")(server);
+require("./controllers/redirect")(server);
 
 server.start();
