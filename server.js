@@ -6,7 +6,7 @@ var Hapi = require("hapi");
 var Bot = require("./lib/bot");
 var MongoDB = require("./lib/mongodb");
 
-var port = parseInt(process.env.PORT) || 3000;
+var port = parseInt(process.env.PORT) || (process.env.NODE_ENV == "test" ? 0 : 3000);
 
 var database = new MongoDB();
 var bot = new Bot(database);
@@ -23,4 +23,8 @@ require("./controllers/messages")(server);
 require("./controllers/redirect")(server);
 require("./controllers/github")(server);
 
-server.start();
+if (require.main === module) {
+  server.start();
+}
+
+module.exports = server;

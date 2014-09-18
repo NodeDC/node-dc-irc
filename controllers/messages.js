@@ -3,6 +3,10 @@ var Joi = require("joi");
 var messages = function (server) {
   var db = server.settings.app.database;
 
+  var getMessages = function (request, reply) {
+    db.getMessages(request.query.offset, reply);
+  };
+
   server.route({
     method: "GET",
     path: "/messages",
@@ -13,7 +17,7 @@ var messages = function (server) {
         }
       },
       pre: [
-        { method: db.getMessages.bind(db), assign: "messages" }
+        { method: getMessages, assign: "messages" }
       ],
       handler: function (request, reply) {
         var messages = request.pre.messages;
