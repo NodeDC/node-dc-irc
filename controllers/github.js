@@ -111,7 +111,10 @@ github.parsers = {
 
     message.push(payload.pusher.name);
     message.push(payload.forced ? "force-pushed" : "pushed");
-    message.push((payload.size || "some") + " commits by");
+
+    // GitHub’s docs state that 20 commits is the max number returned.
+    message.push(payload.commits.length >= 20 ? "20+" : payload.commits.length);
+    message.push("commits by");
 
     var committers = {};
 
@@ -119,6 +122,11 @@ github.parsers = {
       var author = payload.commits[i].author;
       committers[author.username || author.email] = true;
     };
+
+    // GitHub’s docs state that 20 commits is the max number returned.
+    if (payload.commits.length >= 20) {
+      committers["maybe others"] = true;
+    }
 
     message.push(englishize(Object.keys(committers)));
 
