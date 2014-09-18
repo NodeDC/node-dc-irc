@@ -104,7 +104,31 @@ github.parsers = {
       payload.pull_request.html_url + ".");
 
     return message.join(" ");
+  },
+
+  push: function (payload) {
+    var message = [];
+
+    message.push(payload.pusher.name);
+    message.push(payload.forced ? "force-pushed" : "pushed");
+    message.push((payload.size || "some") + " commits by");
+
+    var committers = {};
+
+    for (var i = 0; i < payload.commits.length; i++) {
+      var author = payload.commits[i].author;
+      committers[author.username || author.email] = true;
+    };
+
+    message.push(englishize(Object.keys(committers)));
+
+    message.push("to " + payload.repository.full_name + ":" +
+      payload.ref.replace("refs/heads/", "") + " — " +
+      payload.compare + ".");
+
+    return message.join(" ");
   }
+
 };
 
 var englishize = function (list) {
