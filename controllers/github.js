@@ -1,5 +1,6 @@
 var Joi = require("joi");
 var Hapi = require("hapi");
+var _ = require("underscore");
 
 var github = function (server) {
   var bot = server.settings.app.bot;
@@ -114,34 +115,29 @@ github.parsers = {
   },
 
   push: function (payload) {
-    var message = [];
-
-    message.push(payload.pusher.name);
-    message.push(payload.forced ? "force-pushed" : "pushed");
-
-    // GitHub’s docs state that 20 commits is the max number returned.
-    message.push(payload.commits.length >= 20 ? "20+" : payload.commits.length);
-    message.push("commits by");
-
-    var committers = {};
-
-    for (var i = 0; i < payload.commits.length; i++) {
-      var author = payload.commits[i].author;
-      committers[author.username || author.email] = true;
+    var getAuthorName = function (commit) {
+      return commit.author.username || commit.author.email;
     };
 
-    // GitHub’s docs state that 20 commits is the max number returned.
-    if (payload.commits.length >= 20) {
-      committers["maybe others"] = true;
+    var params = {
+      name: payload.pusher.name,
+      repo: payload.repository.full_name + ":" + payload.ref.replace("refs/heads/", ""),
+      url: payload.compare,
+      commits: payload.commits.length + " " + pluralize(payload.commits.length, "commit"),
+      users: englishize(_.uniq(_.map(payload.commits, getAuthorName)))
+    };
+
+    if (payload.created) {
+      return interpolate("{name} pushed a new branch with {commits} by {users} to {repo} — {url}.", params);
     }
-
-    message.push(englishize(Object.keys(committers)));
-
-    message.push("to " + payload.repository.full_name + ":" +
-      payload.ref.replace("refs/heads/", "") + " — " +
-      payload.compare + ".");
-
-    return message.join(" ");
+    else if (payload.deleted) {
+      return interpolate("{name} deleted branch {repo}.", params);
+    }
+    else {
+      return interpolate("{name} {pushed} {commits} by {users} to {repo} — {url}.", _.extend(params, {
+        pushed: payload.forced ? "force-pushed" : "pushed"
+      }));
+    }
   }
 
 };
@@ -152,6 +148,17 @@ var englishize = function (list) {
   }
 
   return list.slice(0, list.length - 1).join(", ") + ", and " + last;
+};
+
+var pluralize = function (number, word, words) {
+  words = words || word + "s";
+  return number == 1 ? word : words;
+};
+
+var interpolate = function (string, data) {
+  return _.template(string, {
+    interpolate: /\{(.+?)\}/g
+  })(data);
 };
 
 module.exports = github;
