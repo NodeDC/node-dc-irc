@@ -29,6 +29,13 @@ var github = function (server) {
 
           if (message) {
             bot.notice(message);
+
+            if (process.env.NODE_ENV != "test") {
+              console.log({
+                input: request.payload,
+                output: message
+              });
+            }
           }
 
           reply(message)

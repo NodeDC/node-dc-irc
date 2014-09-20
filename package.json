@@ -8,8 +8,8 @@
   },
   "main": "server.js",
   "scripts": {
-    "test": "NODE_ENV=test ./node_modules/.bin/mocha --recursive --reporter spec && ./node_modules/.bin/mocha --recursive --require blanket --reporter travis-cov",
-    "test-cov-report": "./node_modules/.bin/mocha --recursive --require blanket --reporter html-cov > coverage.html && open coverage.html"
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha --recursive --reporter spec && NODE_ENV=test ./node_modules/.bin/mocha --recursive --require blanket --reporter travis-cov",
+    "test-cov-report": "NODE_ENV=test ./node_modules/.bin/mocha --recursive --require blanket --reporter html-cov > coverage.html && open coverage.html"
   },
   "config": {
     "travis-cov": {
