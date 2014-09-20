@@ -1,0 +1,134 @@
+{
+  "ref": "refs/heads/master",
+  "after": "5e230128a0b064525f57c22d4fd520bdbdc99f8f",
+  "before": "2b7c12eef905ce4653ff214fe170c8da0f392939",
+  "created": false,
+  "deleted": false,
+  "forced": false,
+  "compare": "https://github.com/NodeDC/node-dc-irc/compare/2b7c12eef905...5e230128a0b0",
+  "commits": [
+    {
+      "id": "5e230128a0b064525f57c22d4fd520bdbdc99f8f",
+      "distinct": true,
+      "message": "Handle zero-commit case on push message.",
+      "timestamp": "2014-09-20T12:19:58-04:00",
+      "url": "https://github.com/NodeDC/node-dc-irc/commit/5e230128a0b064525f57c22d4fd520bdbdc99f8f",
+      "author": {
+        "name": "Andrew Dunkman",
+        "email": "adunkman@gmail.com",
+        "username": "adunkman"
+      },
+      "committer": {
+        "name": "Andrew Dunkman",
+        "email": "adunkman@gmail.com",
+        "username": "adunkman"
+      },
+      "added": [],
+      "removed": [],
+      "modified": [
+        "controllers/github.js"
+      ]
+    }
+  ],
+  "head_commit": {
+    "id": "5e230128a0b064525f57c22d4fd520bdbdc99f8f",
+    "distinct": true,
+    "message": "Handle zero-commit case on push message.",
+    "timestamp": "2014-09-20T12:19:58-04:00",
+    "url": "https://github.com/NodeDC/node-dc-irc/commit/5e230128a0b064525f57c22d4fd520bdbdc99f8f",
+    "author": {
+      "name": "Andrew Dunkman",
+      "email": "adunkman@gmail.com",
+      "username": "adunkman"
+    },
+    "committer": {
+      "name": "Andrew Dunkman",
+      "email": "adunkman@gmail.com",
+      "username": "adunkman"
+    },
+    "added": [],
+    "removed": [],
+    "modified": [
+      "controllers/github.js"
+    ]
+  },
+  "repository": {
+    "id": 24071506,
+    "name": "node-dc-irc",
+    "full_name": "NodeDC/node-dc-irc",
+    "owner": {
+      "name": "NodeDC",
+      "email": ""
+    },
+    "private": false,
+    "html_url": "https://github.com/NodeDC/node-dc-irc",
+    "description": "An IRC bot (and REST API) for #node.dc.",
+    "fork": false,
+    "url": "https://github.com/NodeDC/node-dc-irc",
+    "forks_url": "https://api.github.com/repos/NodeDC/node-dc-irc/forks",
+    "keys_url": "https://api.github.com/repos/NodeDC/node-dc-irc/keys{/key_id}",
+    "collaborators_url": "https://api.github.com/repos/NodeDC/node-dc-irc/collaborators{/collaborator}",
+    "teams_url": "https://api.github.com/repos/NodeDC/node-dc-irc/teams",
+    "hooks_url": "https://api.github.com/repos/NodeDC/node-dc-irc/hooks",
+    "issue_events_url": "https://api.github.com/repos/NodeDC/node-dc-irc/issues/events{/number}",
+    "events_url": "https://api.github.com/repos/NodeDC/node-dc-irc/events",
+    "assignees_url": "https://api.github.com/repos/NodeDC/node-dc-irc/assignees{/user}",
+    "branches_url": "https://api.github.com/repos/NodeDC/node-dc-irc/branches{/branch}",
+    "tags_url": "https://api.github.com/repos/NodeDC/node-dc-irc/tags",
+    "blobs_url": "https://api.github.com/repos/NodeDC/node-dc-irc/git/blobs{/sha}",
+    "git_tags_url": "https://api.github.com/repos/NodeDC/node-dc-irc/git/tags{/sha}",
+    "git_refs_url": "https://api.github.com/repos/NodeDC/node-dc-irc/git/refs{/sha}",
+    "trees_url": "https://api.github.com/repos/NodeDC/node-dc-irc/git/trees{/sha}",
+    "statuses_url": "https://api.github.com/repos/NodeDC/node-dc-irc/statuses/{sha}",
+    "languages_url": "https://api.github.com/repos/NodeDC/node-dc-irc/languages",
+    "stargazers_url": "https://api.github.com/repos/NodeDC/node-dc-irc/stargazers",
+    "contributors_url": "https://api.github.com/repos/NodeDC/node-dc-irc/contributors",
+    "subscribers_url": "https://api.github.com/repos/NodeDC/node-dc-irc/subscribers",
+    "subscription_url": "https://api.github.com/repos/NodeDC/node-dc-irc/subscription",
+    "commits_url": "https://api.github.com/repos/NodeDC/node-dc-irc/commits{/sha}",
+    "git_commits_url": "https://api.github.com/repos/NodeDC/node-dc-irc/git/commits{/sha}",
+    "comments_url": "https://api.github.com/repos/NodeDC/node-dc-irc/comments{/number}",
+    "issue_comment_url": "https://api.github.com/repos/NodeDC/node-dc-irc/issues/comments/{number}",
+    "contents_url": "https://api.github.com/repos/NodeDC/node-dc-irc/contents/{+path}",
+    "compare_url": "https://api.github.com/repos/NodeDC/node-dc-irc/compare/{base}...{head}",
+    "merges_url": "https://api.github.com/repos/NodeDC/node-dc-irc/merges",
+    "archive_url": "https://api.github.com/repos/NodeDC/node-dc-irc/{archive_format}{/ref}",
+    "downloads_url": "https://api.github.com/repos/NodeDC/node-dc-irc/downloads",
+    "issues_url": "https://api.github.com/repos/NodeDC/node-dc-irc/issues{/number}",
+    "pulls_url": "https://api.github.com/repos/NodeDC/node-dc-irc/pulls{/number}",
+    "milestones_url": "https://api.github.com/repos/NodeDC/node-dc-irc/milestones{/number}",
+    "notifications_url": "https://api.github.com/repos/NodeDC/node-dc-irc/notifications{?since,all,participating}",
+    "labels_url": "https://api.github.com/repos/NodeDC/node-dc-irc/labels{/name}",
+    "releases_url": "https://api.github.com/repos/NodeDC/node-dc-irc/releases{/id}",
+    "created_at": 1410811043,
+    "updated_at": "2014-09-19T00:39:51Z",
+    "pushed_at": 1411230009,
+    "git_url": "git://github.com/NodeDC/node-dc-irc.git",
+    "ssh_url": "git@github.com:NodeDC/node-dc-irc.git",
+    "clone_url": "https://github.com/NodeDC/node-dc-irc.git",
+    "svn_url": "https://github.com/NodeDC/node-dc-irc",
+    "homepage": null,
+    "size": 0,
+    "stargazers_count": 1,
+    "watchers_count": 1,
+    "language": "JavaScript",
+    "has_issues": true,
+    "has_downloads": true,
+    "has_wiki": true,
+    "has_pages": false,
+    "forks_count": 0,
+    "mirror_url": null,
+    "open_issues_count": 1,
+    "forks": 0,
+    "open_issues": 1,
+    "watchers": 1,
+    "default_branch": "master",
+    "stargazers": 1,
+    "master_branch": "master",
+    "organization": "NodeDC"
+  },
+  "pusher": {
+    "name": "adunkman",
+    "email": "adunkman@gmail.com"
+  }
+}
