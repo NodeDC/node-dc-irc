@@ -31,10 +31,10 @@ var github = function (server) {
             bot.notice(message);
 
             if (process.env.NODE_ENV != "test") {
-              console.log({
+              console.log(JSON.stringify({
                 input: request.payload,
                 output: message
-              });
+              }));
             }
           }
 
