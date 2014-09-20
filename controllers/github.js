@@ -119,22 +119,24 @@ github.parsers = {
       return commit.author.username || commit.author.email;
     };
 
+    var users = _.uniq(_.map(payload.commits, getAuthorName));
+
     var params = {
       name: payload.pusher.name,
       repo: payload.repository.full_name + ":" + payload.ref.replace("refs/heads/", ""),
       url: payload.compare,
-      commits: payload.commits.length + " " + pluralize(payload.commits.length, "commit"),
-      users: englishize(_.uniq(_.map(payload.commits, getAuthorName)))
+      commits: payload.commits.length ? payload.commits.length + " " + pluralize(payload.commits.length, "commit") : "no commits",
+      users: users.length ? "by " + englishize(users) : ""
     };
 
     if (payload.created) {
-      return interpolate("{name} pushed a new branch with {commits} by {users} to {repo} — {url}.", params);
+      return interpolate("{name} pushed a new branch with {commits} {users} to {repo} — {url}.", params);
     }
     else if (payload.deleted) {
       return interpolate("{name} deleted branch {repo}.", params);
     }
     else {
-      return interpolate("{name} {pushed} {commits} by {users} to {repo} — {url}.", _.extend(params, {
+      return interpolate("{name} {pushed} {commits} {users} to {repo} — {url}.", _.extend(params, {
         pushed: payload.forced ? "force-pushed" : "pushed"
       }));
     }
