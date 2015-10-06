@@ -13,7 +13,7 @@
   },
   "config": {
     "travis-cov": {
-      "threshold": 50
+      "threshold": 60
     },
     "blanket": {
       "pattern": "//^((?!/node_modules/)(?!/test/).)*$/ig"
